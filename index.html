@@ -58,9 +58,11 @@
       width: 36%;
       position: sticky;
       top: 70px;
+      height: calc(100vh - 70px);
       align-self: flex-start;
       display: flex;
       flex-direction: column;
+      justify-content: flex-start;
       padding-left: 28px;
     }
 
@@ -145,8 +147,34 @@
     }
 
     .left-bottom {
-      margin-top: 44px;
+      margin-top: auto;
+      padding-top: 36px;
       padding-left: 0;
+    }
+
+    .contact-block {
+      margin-bottom: 28px;
+      max-width: 360px;
+    }
+
+    .contact-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #ccd6f6;
+      margin-bottom: 10px;
+    }
+
+    .contact-line {
+      width: 40%;
+      height: 1px;
+      background: #2a3a5a;
+      margin-bottom: 12px;
+    }
+
+    .contact-address {
+      font-size: 0.88rem;
+      color: #8892b0;
+      line-height: 1.6;
     }
 
     .social-icons {
@@ -317,18 +345,20 @@
 
       .left-column {
         position: static;
-        min-height: auto;
+        height: auto;
         padding-left: 0;
       }
 
       .intro-block,
       .role,
-      .intro {
+      .intro,
+      .contact-block {
         max-width: 100%;
       }
 
       .left-bottom {
         margin-top: 28px;
+        padding-top: 0;
       }
     }
 
@@ -348,30 +378,6 @@
         font-size: 2.2rem;
       }
     }
-    .contact-block {
-      margin-bottom: 28px;
-    }
-
-    .contact-title {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: #ccd6f6;
-      margin-bottom: 10px;
-    }
-
-    .contact-line {
-      width: 40%;
-      height: 1px;
-      background: #2a3a5a;
-      margin-bottom: 12px;
-    }
-
-    .contact-address {
-      font-size: 0.88rem;
-      color: #8892b0;
-      line-height: 1.6;
-    }
-    
   </style>
 </head>
 <body>
@@ -395,12 +401,10 @@
             <a href="#research">Research</a>
             <a href="#publications">Publications</a>
             <a href="#experience">Experience</a>
-            <!-- <a href="#contact">Contact</a> -->
           </nav>
         </div>
 
         <div class="left-bottom">
-
           <div class="contact-block">
             <div class="contact-title">Contact</div>
             <div class="contact-line"></div>
@@ -410,7 +414,7 @@
               Blacksburg, VA - 24061
             </div>
           </div>
-          
+
           <div class="social-icons">
             <a href="https://www.linkedin.com/in/rani-khushboo/" target="_blank" aria-label="LinkedIn" title="LinkedIn">
               <i class="fab fa-linkedin"></i>
@@ -454,7 +458,7 @@
 
           <a class="item-link" href="#">
             <div class="item">
-              <div class="item-period">2025 — PRESENT</div>
+              <div class="item-period">2025 — present</div>
               <div class="item-content">
                 <h3>Secure processor architecture</h3>
                 <div class="item-subtitle">Current research focus</div>
@@ -474,7 +478,7 @@
 
           <a class="item-link" href="#">
             <div class="item">
-              <div class="item-period">2024 — PRESENT</div>
+              <div class="item-period">2024 — present</div>
               <div class="item-content">
                 <h3>Microcode-based security mechanisms</h3>
                 <div class="item-subtitle">Microcode customization and defenses</div>
@@ -553,7 +557,7 @@
 
           <a class="item-link" href="#">
             <div class="item">
-              <div class="item-period">2025 — PRESENT</div>
+              <div class="item-period">2025 — present</div>
               <div class="item-content">
                 <h3>Postdoctoral Researcher</h3>
                 <div class="item-subtitle">Current position</div>
@@ -585,9 +589,6 @@
           <p class="section-text">
             The best way to reach me is by email at
             <a href="mailto:rkhushboo@vt.edu" style="color:#64ffda;">rkhushboo@vt.edu</a>.
-          </p>
-          <p class="footer-note">
-            Update your email, LinkedIn URL, Google Scholar URL, CV file, and any publication or experience text you want to customize.
           </p>
         </section>
       </main>
