@@ -692,11 +692,6 @@
   -->
 
   <script>
-  let mouseX = 0;
-  let mouseY = 0;
-  let glowX = 0;
-  let glowY = 0;
-
   const glow = document.querySelector(".cursor-glow");
 
   window.addEventListener("mousemove", (e) => {
@@ -712,17 +707,6 @@
   document.addEventListener("mouseenter", () => {
     glow.style.opacity = "1";   // fade in
   });
-
-  function animate() {
-    /*glowX += (mouseX - glowX) * 0.01;*/
-    /*glowY += (mouseY - glowY) * 0.01;*/
-
-    glow.style.left = glowX + "px";
-    glow.style.top = glowY + "px";
-
-    requestAnimationFrame(animate);
-  }
-
   animate();
 </script>
   
