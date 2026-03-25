@@ -1,160 +1,482 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Khushboo Rani</title>
-
   <style>
+    :root {
+      --bg: #0a192f;
+      --bg-alt: #112240;
+      --text-main: #ccd6f6;
+      --text-secondary: #8892b0;
+      --accent: #64ffda;
+      --line: #233554;
+      --max-width: 1100px;
+      --left-width: 42%;
+      --right-width: 58%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background-color: #0a192f;
-      color: #ccd6f6;
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 80px auto;
-      padding: 20px;
-    }
-
-    h1 {
-      color: #ccd6f6;   /* soft white */
-      font-size: 42px;
-      margin-bottom: 5px;
-    }
-
-    h2 {
-      color: #ccd6f6;   /* soft white */
-      margin-top: 60px;
-    }
-
-    h3 {
-      color: #8892b0;
-      font-weight: normal;
-      margin-top: 0;
-    }
-
-    p {
+      background: var(--bg);
+      color: var(--text-secondary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter,
+        Helvetica, Arial, sans-serif;
       line-height: 1.6;
-      color: #ccd6f6;
     }
 
     a {
-      color: #64ffda;
+      color: var(--accent);
       text-decoration: none;
     }
 
-    .links a {
-      margin-right: 20px;
+    a:hover {
+      text-decoration: underline;
     }
 
-    .section {
-      margin-top: 60px;
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      gap: 48px;
+      min-height: 100vh;
     }
 
-    hr {
-      border: 1px solid #233554;
-      margin: 60px 0;
+    .left {
+      width: var(--left-width);
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 0;
+    }
+
+    .right {
+      width: var(--right-width);
+      padding: 80px 0;
+    }
+
+    .name {
+      margin: 0;
+      color: var(--text-main);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.05;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .title {
+      margin: 12px 0 0;
+      color: var(--text-main);
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+
+    .tagline {
+      margin: 20px 0 0;
+      max-width: 320px;
+      font-size: 1rem;
+      color: var(--text-secondary);
+    }
+
+    .nav {
+      margin-top: 48px;
+    }
+
+    .nav a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: fit-content;
+      margin: 0 0 14px;
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .nav a::before {
+      content: "";
+      display: inline-block;
+      width: 34px;
+      height: 1px;
+      background: var(--text-secondary);
+      transition: width 0.2s ease, background 0.2s ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus {
+      color: var(--text-main);
+      transform: translateX(2px);
+    }
+
+    .nav a:hover::before,
+    .nav a:focus::before {
+      width: 64px;
+      background: var(--text-main);
+    }
+
+    .socials {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.95rem;
+    }
+
+    .socials a {
+      color: var(--text-secondary);
+      text-decoration: none;
+    }
+
+    .socials a:hover {
+      color: var(--accent);
+    }
+
+    section {
+      margin-bottom: 96px;
+      scroll-margin-top: 24px;
+    }
+
+    .section-label {
+      display: none;
+      margin: 0 0 18px;
+      color: var(--text-main);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .about p,
+    .contact p {
+      margin: 0 0 18px;
+      font-size: 1rem;
+    }
+
+    .about strong,
+    .contact strong {
+      color: var(--text-main);
+      font-weight: 600;
+    }
+
+    .card {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 24px;
+      padding: 22px 18px;
+      margin: 0 0 18px;
+      border-radius: 8px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .card:hover {
+      background: rgba(17, 34, 64, 0.55);
+      transform: translateY(-1px);
+    }
+
+    .card-year {
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding-top: 3px;
+      white-space: nowrap;
+    }
+
+    .card-content h3 {
+      margin: 0 0 8px;
+      color: var(--text-main);
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    .card-content p {
+      margin: 0 0 10px;
+      font-size: 0.96rem;
+    }
+
+    .meta {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(100, 255, 218, 0.1);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .pub-item {
+      padding: 18px;
+      border-radius: 8px;
+      transition: background 0.2s ease;
+    }
+
+    .pub-item:hover {
+      background: rgba(17, 34, 64, 0.55);
+    }
+
+    .pub-title {
+      margin: 0 0 6px;
+      color: var(--text-main);
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .pub-authors,
+    .pub-venue {
+      margin: 0 0 4px;
+      font-size: 0.95rem;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        display: block;
+        padding: 0 24px;
+      }
+
+      .left,
+      .right {
+        width: 100%;
+        position: static;
+        height: auto;
+      }
+
+      .left {
+        padding: 56px 0 24px;
+      }
+
+      .right {
+        padding: 12px 0 56px;
+      }
+
+      .nav {
+        margin-top: 32px;
+      }
+
+      .section-label {
+        display: block;
+      }
+
+      .card {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 18px 0;
+      }
+
+      .card-year {
+        padding-top: 0;
+      }
     }
   </style>
 </head>
-
 <body>
+  <div class="page">
+    <aside class="left">
+      <div>
+        <h1 class="name">Khushboo Rani</h1>
+        <p class="title">Postdoctoral Associate, Virginia Tech</p>
+        <p class="tagline">
+          I work in computer architecture, CXL-based memory systems, gem5 simulation,
+          and systems security.
+        </p>
 
-<div class="container">
+        <nav class="nav">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-  <!-- HERO -->
-  <h1>Khushboo Rani</h1>
-  <h3>Postdoctoral Associate, Virginia Tech</h3>
+        <div class="socials">
+          <a href="https://sites.google.com/view/ranikhushboo/home" target="_blank" rel="noopener noreferrer">Google Site</a>
+          <a href="https://github.com/rani-khushboo" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          <a href="#" target="_blank" rel="noopener noreferrer">CV</a>
+          <a href="mailto:your-email@example.com">Email</a>
+        </div>
+      </div>
+    </aside>
 
-  <p>
-    I am a Postdoctoral Associate at Virginia Tech. My research focuses on computer architecture, memory systems, and CXL-based disaggregated memory. I work on architectural simulation using Gem5 and explore performance and security challenges in modern computing systems.
-  </p>
+    <main class="right">
+      <section id="about" class="about">
+        <div class="section-label">About</div>
+        <p>
+          I am a <strong>Postdoctoral Associate at Virginia Tech</strong>. My research focuses on
+          computer architecture, memory systems, and CXL-based disaggregated memory.
+        </p>
+        <p>
+          I work on <strong>architectural simulation using gem5</strong> and study performance,
+          correctness, and security challenges in modern computing systems.
+        </p>
+        <p>
+          My broader interests include scalable memory architectures, cache coherence,
+          system-level evaluation, and secure hardware-software mechanisms.
+        </p>
+      </section>
 
-  <div class="links">
-    <a href="https://drive.google.com/file/d/1vQCKLXvg6v42jU1lkVu2P04eoR4V6W9X/view">CV</a>
-    <a href="https://scholar.google.com/citations?user=vL2NrLsAAAAJ&hl=en">Google Scholar</a>
-    <a href="https://github.com/kuchhu96">GitHub</a>
-    <a href="mailto:rkhushboo@vt.edu">Email</a>
+      <section id="research">
+        <div class="section-label">Research</div>
+
+        <div class="card">
+          <div class="card-year">Current</div>
+          <div class="card-content">
+            <h3>CXL-Based Disaggregated Memory Systems</h3>
+            <p>
+              Investigating multi-host memory sharing, protocol behavior, and correctness issues
+              in disaggregated memory systems using simulation and systems evaluation.
+            </p>
+            <div class="tags">
+              <span class="tag">CXL</span>
+              <span class="tag">Disaggregated Memory</span>
+              <span class="tag">Memory Systems</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-year">Current</div>
+          <div class="card-content">
+            <h3>Architectural Simulation with gem5</h3>
+            <p>
+              Building and extending gem5-based infrastructure to study x86 hosts, shared memory,
+              cache coherence, and full-system or SE-mode behaviors for research prototypes.
+            </p>
+            <div class="tags">
+              <span class="tag">gem5</span>
+              <span class="tag">Simulation</span>
+              <span class="tag">Computer Architecture</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-year">Current</div>
+          <div class="card-content">
+            <h3>Systems Security and Isolation</h3>
+            <p>
+              Exploring architectural and microarchitectural mechanisms for execution isolation,
+              memory safety, and secure system design in emerging computing environments.
+            </p>
+            <div class="tags">
+              <span class="tag">Security</span>
+              <span class="tag">Isolation</span>
+              <span class="tag">Microarchitecture</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="publications">
+        <div class="section-label">Publications</div>
+
+        <div class="pub-list">
+          <div class="pub-item">
+            <p class="pub-title">Selected publications will appear here</p>
+            <p class="pub-authors">Khushboo Rani, co-authors</p>
+            <p class="pub-venue">Conference / Journal, Year</p>
+            <p><a href="#">PDF</a></p>
+          </div>
+
+          <div class="pub-item">
+            <p class="pub-title">You can replace this block with your real paper title</p>
+            <p class="pub-authors">Khushboo Rani, co-authors</p>
+            <p class="pub-venue">Conference / Journal, Year</p>
+            <p><a href="#">PDF</a></p>
+          </div>
+        </div>
+
+        <p class="footer-note">
+          Full publication list available on <a href="#">Google Scholar</a>.
+        </p>
+      </section>
+
+      <section id="projects">
+        <div class="section-label">Projects</div>
+
+        <div class="card">
+          <div class="card-year">Project</div>
+          <div class="card-content">
+            <h3>CXL Memory Simulation in gem5</h3>
+            <p>
+              Developed infrastructure to model and evaluate multi-host CXL memory systems in gem5,
+              including shared memory access behavior and protocol-level interactions.
+            </p>
+            <div class="tags">
+              <span class="tag">gem5</span>
+              <span class="tag">CXL</span>
+              <span class="tag">Simulation</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-year">Project</div>
+          <div class="card-content">
+            <h3>Secure Architecture Research Prototypes</h3>
+            <p>
+              Built and evaluated architecture-level mechanisms related to memory protection,
+              isolation, and secure execution behavior.
+            </p>
+            <div class="tags">
+              <span class="tag">Security</span>
+              <span class="tag">Architecture</span>
+              <span class="tag">Systems</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact">
+        <div class="section-label">Contact</div>
+        <p>
+          I’m open to research collaborations and academic or industry conversations related to
+          computer architecture, memory systems, and secure systems design.
+        </p>
+        <p>
+          Reach me at <a href="mailto:your-email@example.com">your-email@example.com</a>.
+        </p>
+      </section>
+    </main>
   </div>
-
-  <hr>
-
-  <!-- RESEARCH -->
-  <div class="section">
-    <h2>Research</h2>
-    <p>
-      My research focuses on the design and evaluation of next-generation computing systems, including:
-    </p>
-    <ul>
-      <li>CXL-based disaggregated memory systems</li>
-      <li>Architectural simulation using gem5</li>
-      <li>Memory consistency and cache coherence</li>
-      <li>Microarchitectural security</li>
-    </ul>
-  </div>
-
-  <hr>
-
-  <!-- PUBLICATIONS -->
-  <div class="section">
-    <h2>Publications</h2>
-
-    <p>
-      <strong>Paper Title</strong><br>
-      Khushboo Rani, Co-authors<br>
-      Conference/Journal, Year<br>
-      <a href="#">PDF</a>
-    </p>
-
-    <p>
-      Full list available on <a href="https://scholar.google.com/citations?user=vL2NrLsAAAAJ&hl=en">Google Scholar</a>.
-    </p>
-  </div>
-
-  <hr>
-
-  <!-- PROJECTS -->
-  <div class="section">
-    <h2>Projects</h2>
-
-    <p>
-      <strong>CXL Memory Simulation in gem5</strong><br>
-      Developed simulation infrastructure for multi-host CXL memory systems using gem5.<br>
-      <a href="#">GitHub</a>
-    </p>
-
-  </div>
-
-  <hr>
-
-  <!-- SERVICE -->
-  <div class="section">
-    <h2>Service</h2>
-
-    <p>
-      Reviewer for IEEE, Springer, and Elsevier conferences and journals.
-    </p>
-
-  </div>
-
-  <hr>
-
-  <!-- CONTACT -->
-  <div class="section">
-    <h2>Contact</h2>
-
-    <p>
-      Email: rkhushboo@vt.edu <br>
-      GitHub: https://github.com/kuchhu96 <br>
-      Google Scholar: https://scholar.google.com/citations?user=vL2NrLsAAAAJ&hl=en
-    </p>
-
-  </div>
-
-</div>
-
 </body>
 </html>
