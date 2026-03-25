@@ -395,6 +395,9 @@
   pointer-events: none;
   z-index: 0;
 
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  
   /*
   background: radial-gradient(
     circle,
@@ -413,7 +416,6 @@
 );
 
   transform: translate(-50%, -50%);
-  transition: opacity 0s ease;
 }
 
     
@@ -689,7 +691,7 @@
 </script>
   -->
 
-<script>
+  <script>
   let mouseX = 0;
   let mouseY = 0;
   let glowX = 0;
@@ -700,11 +702,20 @@
   window.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
+    glow.style.opacity = "1";   // ensure visible
+  });
+
+  document.addEventListener("mouseleave", () => {
+    glow.style.opacity = "0";   // fade out
+  });
+
+  document.addEventListener("mouseenter", () => {
+    glow.style.opacity = "1";   // fade in
   });
 
   function animate() {
-    glowX += (mouseX - glowX) * 0.08;
-    glowY += (mouseY - glowY) * 0.08;
+    glowX += (mouseX - glowX) * 0.01;
+    glowY += (mouseY - glowY) * 0.01;
 
     glow.style.left = glowX + "px";
     glow.style.top = glowY + "px";
