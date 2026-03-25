@@ -58,7 +58,9 @@
       width: 36%;
       position: fixed;
       top: 90px;
-      left: max(56px, calc((100vw - min(1500px, 90vw)) / 2 + 28px));
+      <!-- left: max(56px, calc((100vw - min(1500px, 90vw)) / 2 + 28px)); -->
+      /* 👇 shift it more toward center */
+      left: calc((100vw - min(1500px, 90vw)) / 2 + 80px);
       height: calc(100vh - 140px);
       display: flex;
       flex-direction: column;
@@ -323,7 +325,7 @@
       }
 
       .main-content {
-        gap: 40px;
+        gap: 48px;
       }
 
       .left-column {
