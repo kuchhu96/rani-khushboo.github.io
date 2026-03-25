@@ -59,8 +59,8 @@
       position: fixed;
       top: 90px;
       <!-- left: max(56px, calc((100vw - min(1500px, 90vw)) / 2 + 28px)); -->
-      /* 👇 shift it more toward center */
-      left: calc((100vw - min(1500px, 90vw)) / 2 + 80px);
+      /* shift it more toward center */
+      left: calc((100vw - min(1500px, 90vw)) / 2 + 120px);
       height: calc(100vh - 140px);
       display: flex;
       flex-direction: column;
@@ -228,16 +228,15 @@
       gap: 24px;
       padding: 22px 20px;
       margin-bottom: 12px;
-      border-radius: 18px;
-      border: 1px solid transparent;
+      border-radius: 10px;
+      border: none;
       background: transparent;
-      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+      transition: background 0.25s ease, transform 0.25s ease;
     }
 
     .item-link:hover .item,
     .item-link:focus .item {
       background: rgba(17, 34, 64, 0.78);
-      border-color: rgba(136, 146, 176, 0.14);
       transform: translateY(-2px);
     }
 
