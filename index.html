@@ -690,22 +690,21 @@
   });
 </script>
   -->
-
-  <script>
+<script>
   const glow = document.querySelector(".cursor-glow");
 
-  window.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    glow.style.opacity = "1";   // ensure visible
+  document.addEventListener("mousemove", (e) => {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+    glow.style.opacity = "1";
   });
 
   document.addEventListener("mouseleave", () => {
-    glow.style.opacity = "0";   // fade out
+    glow.style.opacity = "0";
   });
 
   document.addEventListener("mouseenter", () => {
-    glow.style.opacity = "1";   // fade in
+    glow.style.opacity = "1";
   });
 </script>
   
