@@ -45,6 +45,8 @@
       width: min(1500px, 90vw);
       margin: 0 auto;
       padding: 90px 56px 60px;
+      position: relative;
+      z-index: 1;
     }
 
     .main-content {
@@ -383,10 +385,33 @@
         white-space: normal;
         font-size: 2.2rem;
       }
-    }
+    }/* cursor glow */
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  pointer-events: none;
+  z-index: 0;
+
+  background: radial-gradient(
+    circle,
+    rgba(100, 255, 218, 0.15) 0%,
+    rgba(100, 255, 218, 0.08) 25%,
+    rgba(100, 255, 218, 0.04) 40%,
+    transparent 60%
+  );
+
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+}
+
+    
   </style>
 </head>
 <body>
+  <div class="cursor-glow"></div>
   <div class="page-wrapper">
     <div class="main-content">
       <aside class="left-column">
@@ -643,6 +668,13 @@
       onScroll();
     })();
   </script>
+<script>
+  const glow = document.querySelector(".cursor-glow");
 
+  window.addEventListener("mousemove", (e) => {
+    glow.style.left = e.clientX + "px";
+    glow.style.top = e.clientY + "px";
+  });
+</script>
 </body>
 </html>
