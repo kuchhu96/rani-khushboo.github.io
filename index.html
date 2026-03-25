@@ -676,6 +676,7 @@
       onScroll();
     })();
   </script>
+  /*
 <script>
   const glow = document.querySelector(".cursor-glow");
 
@@ -684,5 +685,33 @@
     glow.style.top = e.clientY + "px";
   });
 </script>
+  */
+
+<script>
+  let mouseX = 0;
+  let mouseY = 0;
+  let glowX = 0;
+  let glowY = 0;
+
+  const glow = document.querySelector(".cursor-glow");
+
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animate() {
+    glowX += (mouseX - glowX) * 0.08;
+    glowY += (mouseY - glowY) * 0.08;
+
+    glow.style.left = glowX + "px";
+    glow.style.top = glowY + "px";
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+  
 </body>
 </html>
