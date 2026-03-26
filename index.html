@@ -58,8 +58,8 @@
     
     .main-content {
       display: grid;
-      grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
-      column-gap: clamp(40px, 6vw, 100px);
+      grid-template-columns: minmax(300px, 390px) minmax(0, 1fr);
+      column-gap: clamp(36px, 5vw, 80px);
       align-items: start;
     }
     
@@ -364,6 +364,7 @@
 
     @media (max-width: 900px) {
       .main-content {
+        display: flex;
         flex-direction: column;
         gap: 34px;
       }
@@ -375,9 +376,8 @@
 
       .left-column {
         position: static;
-        width: 100%;
         height: auto;
-        padding-left: 0;
+        overflow: visible;
       }
 
       .intro-block,
