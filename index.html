@@ -86,13 +86,22 @@
       min-width: 0;
       position: sticky;
       top: 90px;
-      /*height: calc(100vh - 140px);*/
       align-self: start;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      min-height: calc(100vh - 140px);
       /*overflow: hidden;*/
     }
+
+    .left-bottom-wrap {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;   /* fixed distance between contact and icons */
+      padding-bottom: 16px;
+    }
+    
 /*
     .right-column {
       width: 58%;
@@ -490,7 +499,7 @@
           </nav>
         </div>
 
-        <div class="left-bottom">
+        <div class="left-bottom-wrap">
           <div class="contact-block">
             <div class="contact-title">Contact</div>
             <div class="contact-line"></div>
