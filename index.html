@@ -356,11 +356,10 @@
     .item-text.expanded {
       -webkit-line-clamp: unset;
     }
-
+    /* next two are, collapsed and collapsed::after, for fade effect */
     .item-text.collapsed {
       position: relative;
     }
-    
     .item-text.collapsed::after {
       content: "";
       position: absolute;
@@ -368,7 +367,7 @@
       left: 0;
       width: 100%;
       height: 30px;
-      background: linear-gradient(to bottom, transparent, #020c1b);
+      /* background: linear-gradient(to bottom, transparent, #020c1b);*/ 
     }
     
     .tag-list {
