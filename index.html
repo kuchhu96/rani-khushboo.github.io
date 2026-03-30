@@ -333,6 +333,30 @@
       margin-bottom: 10px;
     }
 
+    .item-text {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;   /* number of visible lines */
+      -webkit-box-orient: vertical;
+    }
+    
+    .read-more-btn {
+      margin-top: 6px;
+      font-size: 0.85rem;
+      color: rgb(120, 190, 255);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+    }
+
+.read-more-btn:hover {
+  text-decoration: underline;
+}
+.item-text.expanded {
+  -webkit-line-clamp: unset;
+}
+    
     .tag-list {
       display: flex;
       flex-wrap: wrap;
@@ -566,7 +590,7 @@
               <div class="item-content">
                 <h3>TrustedCPU: Microcode-Based Security Enforcement</h3>
                 <div class="item-subtitle">Current research focus</div>
-                <p>
+                <p class="item-text collapsed">
                   This research focuses on microcode-level mechanisms for enforcing 
                   spatial and temporal memory safety,  heap memory corruption attacks, 
                   and compartmentalization below the ISA, enabling strong security 
@@ -576,7 +600,7 @@
                   into the processor front-end and decode pipeline, providing fine-grained 
                   isolation while maintaining compatibility with existing systems.
                 </p>
-                
+                <button class="read-more-btn">Show more</button>
                 <div class="tag-list">
                   <span class="tag">Architecture security</span>
                   <span class="tag">Memory safety</span>
@@ -797,6 +821,22 @@
   document.addEventListener("mouseenter", () => {
     if (!glow) return;
     glow.style.opacity = "1";
+  });
+</script>
+
+<script>
+  document.querySelectorAll(".read-more-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const text = btn.previousElementSibling;
+
+      text.classList.toggle("expanded");
+
+      if (text.classList.contains("expanded")) {
+        btn.textContent = "Show less";
+      } else {
+        btn.textContent = "Show more";
+      }
+    });
   });
 </script>
   
