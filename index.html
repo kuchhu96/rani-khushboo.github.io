@@ -350,12 +350,26 @@
       padding: 0;
     }
 
-.read-more-btn:hover {
-  text-decoration: underline;
-}
-.item-text.expanded {
-  -webkit-line-clamp: unset;
-}
+    .read-more-btn:hover {
+      text-decoration: underline;
+    }
+    .item-text.expanded {
+      -webkit-line-clamp: unset;
+    }
+
+    .item-text.collapsed {
+      position: relative;
+    }
+    
+    .item-text.collapsed::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+      background: linear-gradient(to bottom, transparent, #020c1b);
+    }
     
     .tag-list {
       display: flex;
