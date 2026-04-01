@@ -40,9 +40,15 @@
     a {
       text-decoration: none;
       color: inherit;
-      color: rgb(120, 190, 255);
     }
-    a:hover {
+
+    .custom-link {
+      color: rgb(120, 190, 255);
+      text-decoration: none;
+    }
+    
+    .custom-link:hover {
+      color: #ffffff;
       text-decoration: underline;
     }
 
@@ -596,7 +602,7 @@
             More broadly, my research focuses on designing secure, efficient, and scalable computing systems, spanning hardware security, microcode-level enforcement, and secure processor architectures. My work includes Network-on-Chip (NoC) design, heterogeneous systems with CXL-based memory, and architectural simulation using gem5. I have contributed to projects such as the ONR TrustedCPU initiative, developed frameworks for automated software compartmentalization, and led efforts on secure cryptographic hardware under the DARPA AISS program.
           </p>
           <p class="section-text">
-            I completed my Ph.D. from IIT Guwahati, India. My <a href="https://shodhganga.inflibnet.ac.in/handle/10603/450417" target="_blank" rel="noopener noreferrer">thesis</a> research focused on energy-efficient Network-on-Chip (NoC) 
+            I completed my Ph.D. from IIT Guwahati, India. My <a href="https://shodhganga.inflibnet.ac.in/handle/10603/450417" class="custom-link" target="_blank" rel="noopener noreferrer">thesis</a> research focused on energy-efficient Network-on-Chip (NoC) 
             design under dark silicon constraints, where I explored replacing SRAM router buffers with low-leakage NVM-based buffers. 
             I proposed techniques for write distribution, adaptive buffer management, and traffic reduction to improve endurance, 
             reduce power consumption, and extend the lifetime of NoC interconnects.
