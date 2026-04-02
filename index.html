@@ -53,9 +53,13 @@
     }
 
     .page-wrapper {
-      width: min(1400px, 92vw);
+      --left-col: 320px;   /* x */
+      --right-col: 760px;  /* y */
+      --col-gap: 72px;     /* z */
+    
+      width: min(calc(var(--left-col) + var(--right-col) + var(--col-gap)), 92vw);
       margin: 0 auto;
-      padding: 90px 40px 60px;
+      padding: 90px 0 60px;
       position: relative;
       z-index: 1;
     }
@@ -70,8 +74,8 @@
     
     .main-content {
       display: grid;
-      grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
-      gap: clamp(40px, 6vw, 80px);
+      grid-template-columns: var(--left-col) minmax(0, var(--right-col));
+      gap: var(--col-gap);
       align-items: start;
       /* move both columns a little to the right */
       /* transform: translateX(60px); */
@@ -80,15 +84,16 @@
    /* left column details */
  /*
     .left-column {
-      width: 36%;
-      position: fixed;
+      width: 100%;
+      min-width: 0;
+      position: sticky;
       top: 90px;
-      left: 300px;
-      height: calc(100vh - 140px);
+      align-self: start;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      overflow: hidden;
+      min-height: calc(100vh - 140px);
+      /* overflow: hidden;*/
     } 
     */
 
@@ -102,7 +107,6 @@
       flex-direction: column;
       justify-content: flex-start;
       min-height: calc(100vh - 140px);
-      /*overflow: hidden;*/
     }
 
     .left-bottom-wrap {
@@ -115,9 +119,12 @@
     
 /*
     .right-column {
-      width: 58%;
-      margin-left: auto;
+      width: 100%;
+      min-width: 0;
       padding-top: 0;
+      margin-left: 75px;     
+      max-width: calc(100% - 40px); 
+      max-width: 760px;
     } 
     */
 
@@ -125,9 +132,7 @@
       width: 100%;
       min-width: 0;
       padding-top: 0;
-      /* margin-left: 75px; */    /* move right (~2cm) */
-      /* max-width: calc(100% - 40px); */ /* reduce width (~1cm) */
-      max-width: 760px;
+      max-width: 100%;      
     }
     
     .intro-block {
