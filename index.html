@@ -54,12 +54,13 @@
 
     .page-wrapper {
       --left-col: 320px;   /* x */
-      --right-col: 760px;  /* y */
+      --right-col: 740px;  /* y */
       --col-gap: 72px;     /* z */
+      --top-offset: 90px;
     
       width: min(calc(var(--left-col) + var(--right-col) + var(--col-gap)), 92vw);
       margin: 0 auto;
-      padding: 90px 0 60px;
+      padding: var(--top-offset) 0 60px;
       position: relative;
       z-index: 1;
     }
@@ -77,8 +78,8 @@
       grid-template-columns: var(--left-col) minmax(0, var(--right-col));
       gap: var(--col-gap);
       align-items: start;
-      /* move both columns a little to the right */
-      /* transform: translateX(60px); */
+      position: relative;
+      min-height: 100vh;
     }
     
    /* left column details */
@@ -98,15 +99,15 @@
     */
 
     .left-column {
-      width: 100%;
-      min-width: 0;
-      position: sticky;
-      top: 90px;
-      align-self: start;
+      width: var(--left-col);
+      position: fixed;
+      top: var(--top-offset);
+      left: 50%;
+      transform: translateX(calc((-1 * (var(--left-col) + var(--right-col) + var(--col-gap)) / 2)));
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      min-height: calc(100vh - 140px);
+      height: calc(100vh - var(--top-offset) - 40px);
     }
 
     .left-bottom-wrap {
@@ -129,10 +130,9 @@
     */
 
     .right-column {
-      width: 100%;
-      min-width: 0;
+      width: var(--right-col);
+      margin-left: calc(var(--left-col) + var(--col-gap));
       padding-top: 0;
-      max-width: 100%;      
     }
     
     .intro-block {
@@ -453,20 +453,29 @@
     }
 
     @media (max-width: 980px) {
+      .page-wrapper {
+        width: min(100%, 96vw);
+        padding: 70px 28px 40px;
+      }
+      
       .main-content {
         display: flex;
         flex-direction: column;
         gap: 34px;
-        transform: none;
+        /*transform: none;*/
+        min-height: auto;
       }
 
       .left-column,
       .right-column {
         width: 100%;
+        margin-left: 0;
+        transform: none;
       }
 
       .left-column {
         position: static;
+        height: auto;
         max-height: none;
         overflow: visible;
       }
