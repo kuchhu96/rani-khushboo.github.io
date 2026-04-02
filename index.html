@@ -99,15 +99,15 @@
     */
 
     .left-column {
-      width: var(--left-col);
-      position: fixed;
+      width: 100%;
+      min-width: 0;
+      position: sticky;
       top: var(--top-offset);
-      left: 50%;
-      transform: translateX(calc((-1 * (var(--left-col) + var(--right-col) + var(--col-gap)) / 2)));
+      align-self: start;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
-      height: calc(100vh - var(--top-offset) - 40px);
+      min-height: calc(100vh - var(--top-offset) - 40px);
     }
 
     .left-bottom-wrap {
@@ -131,7 +131,8 @@
 
     .right-column {
       width: var(--right-col);
-      margin-left: calc(var(--left-col) + var(--col-gap));
+      margin-left: 0;
+      min-width: 0;
       padding-top: 0;
     }
     
