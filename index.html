@@ -53,11 +53,11 @@
     }
 
     .page-wrapper {
-      --left-col: 320px;
-      --right-col: 740px;
-      --col-gap: 80px;
+      --left-col: 28%;
+      --right-col: 52%;
+      --col-gap: 6%;
     
-      width: min(calc(var(--left-col) + var(--right-col) + var(--col-gap)), 92vw);
+      width: min(1400px, 92vw);
       margin: 0 auto;
       padding: 90px 0 60px;
       position: relative;
@@ -74,8 +74,8 @@
     
     .main-content {
       display: grid;
-      grid-template-columns: var(--left-col) minmax(0, var(--right-col));
-      gap: var(--col-gap);
+      grid-template-columns: minmax(280px, var(--left-col)) minmax(0, var(--right-col));
+      gap: clamp(40px, 6vw, 80px);
       align-items: start;
     }
     
@@ -84,7 +84,7 @@
     .left-column {
       width: 100%;
       min-width: 0;
-      position: fixed;
+      position: sticky;
       top: 90px;
       align-self: start;
       display: flex;
