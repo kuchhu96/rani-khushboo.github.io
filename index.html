@@ -71,10 +71,10 @@
     .main-content {
       display: grid;
       grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
-      gap: clamp(40px, 6vw, 100px);
+      gap: clamp(40px, 6vw, 80px);
       align-items: start;
       /* move both columns a little to the right */
-      transform: translateX(60px);
+      /* transform: translateX(60px); */
     }
     
    /* left column details */
@@ -125,9 +125,9 @@
       width: 100%;
       min-width: 0;
       padding-top: 0;
-
-      margin-left: 75px;     /* move right (~2cm) */
-      max-width: calc(100% - 40px);  /* reduce width (~1cm) */
+      /* margin-left: 75px; */    /* move right (~2cm) */
+      /* max-width: calc(100% - 40px); */ /* reduce width (~1cm) */
+      max-width: 760px;
     }
     
     .intro-block {
@@ -304,7 +304,7 @@
       /*background: rgba(17, 34, 64, 0.78);*/
       /* subtle grey */
       background: rgba(255, 255, 255, 0.06);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25)
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
       transform: translateY(-2px);
     }
 
@@ -693,7 +693,7 @@
             <div class="item">
               <div class="item-period">May 2021 — Nov 2021</div>
               <div class="item-content">
-                <h3>Software/Hardware Co-Design for Secure Speculative Executio</h3>
+                <h3>Software/Hardware Co-Design for Secure Speculative Execution</h3>
                 <div class="item-subtitle">Research Collaborator, National University of Singapore (NUS)</div>
                 <p class="item-text collapsed">
                   blah blah blah
@@ -710,22 +710,6 @@
           </a>
         </section>
 
-        <section id="Resume">
-          <h2 class="section-title">Publications</h2>
-
-          <a class="item-link" href="#">
-            <div class="item">
-              <div class="item-period">2020 — 2024</div>
-              <div class="item-content">
-                <h3>Research on reliable and efficient on-chip interconnects</h3>
-                <div class="item-subtitle">PhD research publications</div>
-                <p>
-                  Contributions addressing reliability, performance, and efficiency of network-on-chip systems.
-                </p>
-              </div>
-            </div>
-          </a>
-          
         <section id="publications">
           <h2 class="section-title">Publications</h2>
 
