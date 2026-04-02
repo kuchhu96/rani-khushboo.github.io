@@ -80,7 +80,7 @@
     }
     
    /* left column details */
-
+    /*
     .left-column {
       width: 100%;
       min-width: 0;
@@ -92,7 +92,7 @@
       justify-content: flex-start;
       min-height: calc(100vh - 140px);
     } 
-    
+    */
  /*
     .left-column {
       width: width: var(--left-col);
@@ -106,6 +106,23 @@
       justify-content: flex-start;
     }
 */
+    .left-column {
+      width: 100%;
+      min-width: 0;
+      position: relative;   /* stays in grid */
+    }
+    
+    .left-column-inner {
+      width: var(--left-col);
+      position: fixed;
+      top: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      min-height: calc(100vh - 140px);
+    }
+
+    
     .left-bottom-wrap {
       margin-top: auto;
       display: flex;
@@ -546,6 +563,7 @@
   <div class="page-wrapper">
     <div class="main-content">
       <aside class="left-column">
+        <div class="left-column-inner">
         <div class="intro-block">
           <h1 class="name">Khushboo Rani</h1>
 
@@ -596,6 +614,7 @@
             <a href="cv.pdf" target="_blank" aria-label="CV" title="CV">
               <i class="fas fa-file-alt"></i>
             </a>
+          </div>
           </div>
         </div>
       </aside>
