@@ -452,6 +452,102 @@
       font-weight: 500;
     }
 
+    .pub-category {
+      max-width: 750px;
+      margin-bottom: 18px;
+    }
+    
+    .pub-category-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 20px;
+      border: none;
+      border-radius: 12px;
+      background: transparent;
+      color: #e6f1ff;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+    
+    .pub-category-toggle:hover {
+      background: rgba(255, 255, 255, 0.06);
+    }
+    
+    .pub-category-title {
+      font-size: 1.02rem;
+      font-weight: 600;
+      color: #e6f1ff;
+    }
+    
+    .pub-category-icon {
+      font-size: 1.2rem;
+      color: rgb(120, 190, 255, 0.9);
+      line-height: 1;
+    }
+    
+    .pub-category-content {
+      display: none;
+      margin-top: 10px;
+    }
+    
+    .pub-category.open .pub-category-content {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .pub-category.open .pub-category-icon {
+      content: "-";
+    }
+    
+    .pub-paper {
+      display: grid;
+      grid-template-columns: 80px minmax(0, 1fr);
+      gap: 18px;
+      padding: 18px 20px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.03);
+      transition: background 0.25s ease, transform 0.25s ease;
+    }
+    
+    .pub-paper:hover {
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-2px);
+    }
+    
+    .pub-paper-year {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #8892b0;
+      letter-spacing: 0.03em;
+      padding-top: 4px;
+      white-space: nowrap;
+    }
+    
+    .pub-paper-main h3 {
+      font-size: 1rem;
+      color: #e6f1ff;
+      font-weight: 600;
+      margin-bottom: 6px;
+      line-height: 1.5;
+    }
+    
+    .pub-paper-authors {
+      font-size: 0.92rem;
+      color: #ccd6f6;
+      margin-bottom: 6px;
+    }
+    
+    .pub-paper-venue {
+      font-size: 0.9rem;
+      color: #8892b0;
+      line-height: 1.6;
+    }
+
     .resume-link-wrap {
       margin-top: 18px;
     }
@@ -784,19 +880,66 @@
         <section id="publications">
           <h2 class="section-title">Publications</h2>
 
-          <a class="item-link" href="#">
-            <div class="item">
-              <div class="item-period">2023</div>
-              <div class="item-content">
-                <h3>abc</h3>
-                <div class="item-subtitle">abc</div>
-                <p>
-                  Work on practical microcode customization and security-oriented architectural exploration.
-                </p>
-              </div>
-            </div>
-          </a>
+          <div class="pub-category">
+  <button class="pub-category-toggle" type="button" aria-expanded="false">
+    <span class="pub-category-title">Journal</span>
+    <span class="pub-category-icon">+</span>
+  </button>
 
+  <div class="pub-category-content">
+    <a class="pub-paper" href="#" target="_blank" rel="noopener noreferrer">
+      <div class="pub-paper-year">2023</div>
+      <div class="pub-paper-main">
+        <h3>ML-based Flow Correlation Attack on Anonymous Routing and Lightweight Countermeasures for NoC-based SoCs</h3>
+        <div class="pub-paper-authors">
+          Hansika Weerasena, Pan Zhixin, Khushboo Rani, and Prabhat Mishra
+        </div>
+        <div class="pub-paper-venue">
+          Manuscript developed and submitted to peer-reviewed journals during postdoctoral research at the University of Florida (2022–2023)
+        </div>
+      </div>
+    </a>
+
+    <a class="pub-paper" href="https://doi.org/10.1109/TCAD.2020.3007555" target="_blank" rel="noopener noreferrer">
+      <div class="pub-paper-year">2020</div>
+      <div class="pub-paper-main">
+        <h3>Investigating Frequency Scaling, Non-Volatile, and Hybrid Memory Technologies for On-Chip Routers to Support the Era of Dark Silicon</h3>
+        <div class="pub-paper-authors">
+          Khushboo Rani and Hemangee K. Kapoor
+        </div>
+        <div class="pub-paper-venue">
+          IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems
+        </div>
+      </div>
+    </a>
+
+    <a class="pub-paper" href="#" target="_blank" rel="noopener noreferrer">
+      <div class="pub-paper-year">2019</div>
+      <div class="pub-paper-main">
+        <h3>Write Variation Aware Buffer Assignment for Improved Lifetime of Non-Volatile Buffers in On-Chip Interconnects</h3>
+        <div class="pub-paper-authors">
+          Khushboo Rani and Hemangee K. Kapoor
+        </div>
+        <div class="pub-paper-venue">
+          IEEE Transactions on Very Large Scale Integration (VLSI) Systems, 27(9): 2191–2204
+        </div>
+      </div>
+    </a>
+
+    <a class="pub-paper" href="#" target="_blank" rel="noopener noreferrer">
+      <div class="pub-paper-year">2019</div>
+      <div class="pub-paper-main">
+        <h3>Write-Variation Aware Alternatives to Replace SRAM Buffers with Non-Volatile Buffers in On-Chip Interconnects</h3>
+        <div class="pub-paper-authors">
+          Khushboo Rani and Hemangee K. Kapoor
+        </div>
+        <div class="pub-paper-venue">
+          IET Computers and Digital Techniques, 13(6): 481–492
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
           <a class="item-link" href="#">
             <div class="item">
               <div class="item-period">2020 — 2024</div>
@@ -951,6 +1094,18 @@
     });
   });
 </script>
-  
+<script>
+  document.querySelectorAll(".pub-category-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const category = btn.parentElement;
+      const isOpen = category.classList.contains("open");
+
+      category.classList.toggle("open");
+
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      btn.querySelector(".pub-category-icon").textContent = isOpen ? "+" : "−";
+    });
+  });
+</script>
 </body>
 </html>
