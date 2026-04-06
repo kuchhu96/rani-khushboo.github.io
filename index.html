@@ -322,11 +322,16 @@
     section:not(:last-child)::after {
       content: "";
       display: block;
-      height: 1px;
+      height: 0px;
       margin-top: 48px;
       background: rgba(255, 255, 255, 0.08);
     }
 
+    section h2 {
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    
     .section-title {
       display: none;
     }
