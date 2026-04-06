@@ -315,8 +315,16 @@
     }
 
     section {
-      margin-bottom: 84px;
+      margin-bottom: 100px;
       scroll-margin-top: 90px;
+    }
+
+    section:not(:last-child)::after {
+      content: "";
+      display: block;
+      height: 1px;
+      margin-top: 48px;
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .section-title {
