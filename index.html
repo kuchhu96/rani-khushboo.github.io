@@ -490,10 +490,24 @@
     }
     
     .pub-category-content {
-      display: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
       margin-top: 10px;
     }
 
+    .pub-category-content.preview-2 .pub-paper:nth-child(n+3) {
+      display: none;
+    }
+    
+    .pub-category-content.preview-1 .pub-paper:nth-child(n+2) {
+      display: none;
+    }
+    
+    .pub-category.open .pub-category-content .pub-paper {
+      display: grid;
+    }
+    
     .pub-category.open .pub-category-title {
       color: rgb(120, 190, 255, 0.9);
     }
@@ -506,6 +520,18 @@
     
     .pub-category.open .pub-category-icon {
       content: "-";
+    }
+
+    .pub-category-content.preview-2 .pub-paper:nth-child(n+3) {
+      display: none;
+    }
+    
+    .pub-category-content.preview-1 .pub-paper:nth-child(n+2) {
+      display: none;
+    }
+    
+    .pub-category.open .pub-category-content .pub-paper {
+      display: grid;
     }
     
     .pub-paper {
@@ -894,7 +920,7 @@
               <span class="pub-category-icon">+</span>
             </button>
           
-            <div class="pub-category-content">
+            <div class="pub-category-content preview-2">
               <a class="pub-paper" href="#" target="_blank" rel="noopener noreferrer">
                 <div class="pub-paper-year">2023</div>
                 <div class="pub-paper-main">
@@ -955,7 +981,7 @@
               <span class="pub-category-icon">+</span>
             </button>
           
-            <div class="pub-category-content">
+            <div class="pub-category-content preview-2">
 
               <a class="pub-paper" href="#" target="_blank" rel="noopener noreferrer">
                 <div class="pub-paper-year">2026</div>
@@ -1096,7 +1122,7 @@
               <span class="pub-category-icon">+</span>
             </button>
           
-            <div class="pub-category-content">
+            <div class="pub-category-content preview-1">
           
               <a class="pub-paper" href="#" target="_blank" rel="noopener noreferrer">
                 <div class="pub-paper-year">2023</div>
@@ -1120,7 +1146,7 @@
               <span class="pub-category-icon">+</span>
             </button>
           
-            <div class="pub-category-content">
+            <div class="pub-category-content preview-1">
           
               <a class="pub-paper" href="#" target="_blank" rel="noopener noreferrer">
                 <div class="pub-paper-year">2021</div>
