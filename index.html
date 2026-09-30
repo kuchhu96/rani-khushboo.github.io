@@ -750,6 +750,77 @@
   transform: translate(-50%, -50%);
 }
 
+    /* press dropdown */
+    .press-menu {
+      position: relative;
+      display: inline-flex;
+    }
+
+    .press-toggle {
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      color: #a8b2d1;
+      font-size: 1.6rem;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .press-toggle:hover,
+    .press-menu.open .press-toggle {
+      color: rgb(120, 190, 255, 0.9);
+      transform: translateY(-3px);
+    }
+
+    .press-dropdown {
+      position: absolute;
+      bottom: calc(100% + 14px);
+      left: 50%;
+      min-width: 220px;
+      padding: 10px;
+      border-radius: 12px;
+      background: #0b1a30;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      opacity: 0;
+      visibility: hidden;
+      transform: translate(-50%, 6px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+      z-index: 20;
+    }
+
+    .press-menu:hover .press-dropdown,
+    .press-menu.open .press-dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, 0);
+    }
+
+    .press-dropdown-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #8892b0;
+      padding: 4px 10px 8px;
+    }
+
+    .social-icons .press-dropdown a {
+      display: block;
+      font-size: 0.9rem;
+      color: #ccd6f6;
+      padding: 8px 10px;
+      border-radius: 8px;
+      white-space: nowrap;
+      transform: none;
+    }
+
+    .social-icons .press-dropdown a:hover {
+      background: rgba(255, 255, 255, 0.06);
+      color: rgb(120, 190, 255, 0.9);
+      transform: none;
+    }
+
     
   </style>
 </head>
@@ -1398,6 +1469,28 @@
 
       btn.setAttribute("aria-expanded", String(!isOpen));
       btn.querySelector(".pub-category-icon").textContent = isOpen ? "+" : "−";
+    });
+  });
+</script>
+<script>
+  document.querySelectorAll(".press-menu").forEach((menu) => {
+    const btn = menu.querySelector(".press-toggle");
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const open = menu.classList.toggle("open");
+      btn.setAttribute("aria-expanded", String(open));
+    });
+    document.addEventListener("click", (e) => {
+      if (!menu.contains(e.target)) {
+        menu.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      }
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        menu.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      }
     });
   });
 </script>
